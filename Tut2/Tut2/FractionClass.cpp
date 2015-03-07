@@ -92,22 +92,45 @@ int gcd(int a, int b) //Euclidean subtraction based method to find greatest comm
 	}
 	return a;
 }
-void Fraction::print()
+void Fraction::print() //Displays the fraction as a mixed number
 {
-	int k = gcd((n%d), d);
-	if (n / d >= 1)
+	if (n % d == 0) //Displays as a whole number if no remainder
 	{
-		cout << n / d << " and " << (n%d) / k << "/" << d / k << endl;
+		cout << n / d << endl;
 	}
 	else
 	{
-		cout << (n%d) / k << "/" << d / k << endl;
+		int k = gcd((n%d), d); //Displays as a whole number and fraction if greater than 1
+		if (n / d >= 1)
+		{
+			cout << n / d << " and " << (n%d) / k << "/" << d / k << endl;
+		}
+		else //Displays as only a fraction if less than 1
+		{
+			cout << (n%d) / k << "/" << d / k << endl;
+		}
 	}
 }
 
 int main()
 {
-	int gcd(int, int);
+	int gcd();
+	Fraction x(5, 2); //Values for test variables chosen such that all possible ways to print a number is shown
+	Fraction y(1, 4);
+	Fraction z;
+	//The following tests compare expected answers with those calculated:
+	z = x.add(y);
+	cout << " 5/2 + 1/4 = 2 and 3/4 , add function gives: ";
+	z.print();
+	z = x.sub(y);
+	cout << " 5/2 - 1/4 = 2 and 1/4 , subtract function gives: ";
+	z.print();
+	z = x.mult(y);
+	cout << " 5/2 * 1/4 = 5/8 , multiply function gives: ";
+	z.print();
+	z = x.div(y);
+	cout << " 5/2 / 1/4 = 10 , divide function gives: ";
+	z.print();
 	system("pause");
 	return 0;
 }
