@@ -1,30 +1,8 @@
 //Creating a class: Fraction
 //Author: K Naidoo, Date: 07/03/2015
 #include <iostream>
+#include "Fraction.hpp"
 using namespace std;
-
-
-class Fraction
-{
-private:
-	int n, d; //Declares numerator and denominator variables
-public:
-	Fraction(int, int); //Declares constructor
-	Fraction(); //Declares default constructor
-	~Fraction(); //Declares destructor
-	//Declares accessors:
-	int getn();
-	int getd();
-	//Declares mutators with conditions:
-	void setn(int);
-	void setd(int);
-	Fraction add(Fraction);
-	Fraction sub(Fraction);
-	Fraction mult(Fraction);
-	Fraction div(Fraction);
-	void print();
-	
-};
 
 Fraction::Fraction(int a, int b) //Defines constructor
 {
