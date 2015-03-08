@@ -1,3 +1,5 @@
+//Header file for class "Fraction"
+#pragma once
 #ifndef FRACTION_H
 #define FRACTION_H
 
