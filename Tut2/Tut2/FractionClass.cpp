@@ -22,38 +22,39 @@ Fraction::~Fraction() //Defines destructor
 int Fraction::getn() { return n; }
 int Fraction::getd() { return d; }
 //Defines mutators:
-void Fraction::setn(int a)
+void Fraction::setn(int a) //Doesnt allow a negative value for numerator
 {
 	if (a < 0)
 		return;
 	n = a;
 }
-void Fraction::setd(int b)
+void Fraction::setd(int b) //Doesnt allow a negative or zero value for denominator
 {
 	if (b <= 0)
 		return;
 	d = b;
 }
 //Definitions for other methods of class: add, sub, mult, div, print:
-Fraction Fraction::add(Fraction other)
+//Changed to operator overloading:
+Fraction Fraction::operator+(Fraction other)
 {
 	int top = n*other.d + d*other.n;
 	int bot = d*other.d;
 		return Fraction(top, bot);
 }
-Fraction Fraction::sub(Fraction other)
+Fraction Fraction::operator-(Fraction other)
 {
 	int top = n*other.d - d*other.n;
 	int bot = d*other.d;
 	return Fraction(top, bot);
 }
-Fraction Fraction::mult(Fraction other)
+Fraction Fraction::operator*(Fraction other)
 {
 	int top = n*other.n;
 	int bot = d*other.d;
 	return Fraction(top, bot);
 }
-Fraction Fraction::div(Fraction other)
+Fraction Fraction::operator/(Fraction other)
 {
 	int top = n*other.d;
 	int bot = d*other.n;
@@ -97,16 +98,17 @@ int main()
 	Fraction y(1, 4);
 	Fraction z;
 	//The following tests compare expected answers with those calculated:
-	z = x.add(y);
+	//Function calls replaced by operators:
+	z = x + y;
 	cout << " 5/2 + 1/4 = 2 and 3/4 , add function gives: ";
 	z.print();
-	z = x.sub(y);
+	z = x - y;
 	cout << " 5/2 - 1/4 = 2 and 1/4 , subtract function gives: ";
 	z.print();
-	z = x.mult(y);
+	z = x * y;
 	cout << " 5/2 * 1/4 = 5/8 , multiply function gives: ";
 	z.print();
-	z = x.div(y);
+	z = x / y;
 	cout << " 5/2 / 1/4 = 10 , divide function gives: ";
 	z.print();
 	system("pause");

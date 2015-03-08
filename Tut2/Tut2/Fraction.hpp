@@ -15,11 +15,13 @@ public:
 	//Declares mutators with conditions:
 	void setn(int);
 	void setd(int);
-	Fraction add(Fraction);
-	Fraction sub(Fraction);
-	Fraction mult(Fraction);
-	Fraction div(Fraction);
-	void print();
+	//Declares member functions of class fraction: (operation functions replaced by operator overloading)
+	Fraction operator+(Fraction);
+	Fraction operator-(Fraction);
+	Fraction operator*(Fraction);
+	Fraction operator/(Fraction);
+	void print();//Declares function to display fraction variable
+	
 };
 
 #endif
