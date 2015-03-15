@@ -2,7 +2,7 @@
 #pragma once
 #ifndef FRACTION_H
 #define FRACTION_H
-
+using namespace std;
 class Fraction
 {
 private:
@@ -22,7 +22,10 @@ public:
 	Fraction operator-(Fraction);
 	Fraction operator*(Fraction);
 	Fraction operator/(Fraction);
-	void print();//Declares function to display fraction variable
+	//void print();//Declares function to display fraction variable
+	friend ostream &operator<<(ostream &, Fraction ); //Declares ostream operator overloading
+	friend istream &operator>>(istream &, Fraction &); //Declares istream operator overloading
+	
 	
 };
 
